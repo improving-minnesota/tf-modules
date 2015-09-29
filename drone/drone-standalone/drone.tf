@@ -57,7 +57,7 @@ resource "aws_instance" "drone" {
   ]
   subnet_id = "${var.subnet_id}"
   associate_public_ip_address = true
-  user_data = "${template_file.drone_user_data.rendered}"
+  user_data = "${template_file.user_data.rendered}"
   tags {
     Name = "drone"
   }
