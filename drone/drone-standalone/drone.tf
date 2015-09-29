@@ -1,5 +1,5 @@
 resource "template_file" "drone_command" {
-  filename = "drone.cmd"
+  filename = "${path.module}/drone.cmd"
   vars {
     github_client = "${var.github_client}"
     github_secret = "${var.github_secret}"
@@ -9,7 +9,7 @@ resource "template_file" "drone_command" {
 }
 
 resource "template_file" "user_data" {
-  filename = "user_data.tpl"
+  filename = "${path.module}/user_data.tpl"
   vars {
     drone_command = "${template_file.drone_command.rendered}"
     additional_user_data = "${var.additional_user_data}"
