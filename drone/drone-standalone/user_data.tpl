@@ -2,6 +2,7 @@
 mounts:
   - [ xvdh, /var/lib/drone ]
 runcmd:
-  - [ cloud-init-per, once, curl, "-sSL", "https://get.docker.com/"", "|", sh ]
+  - [ curl, -sSL, "https://get.docker.com/", -o, /tmp/docker.sh ]
+  - [ cloud-init-per, once, sh, /tmp/docker.sh ]
   - "${drone_command}"
 ${additional_user_data}
