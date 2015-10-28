@@ -25,6 +25,7 @@ write_files:
         -e SONARQUBE_JDBC_USERNAME="$${DB_USERNAME}" \
         -e SONARQUBE_JDBC_PASSWORD="$${DB_PASSWORD}" \
         -e SONARQUBE_JDBC_URL="$${DB_URL}" \
-        -v /opt/sonarqube:/opt/sonarqube \
+        -v /opt/sonarqube/data:/opt/sonarqube/data \
+        -v /opt/sonarqube/extensions:/opt/sonarqube/extensions \
         "$${IMAGE}"
 ${additional_user_data}
