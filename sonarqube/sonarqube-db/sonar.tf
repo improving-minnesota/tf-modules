@@ -1,17 +1,11 @@
-resource "template_file" "sonar_command" {
-  filename = "${path.module}/sonar.cmd"
+resource "template_file" "user_data" {
+  filename = "${path.module}/user_data.tpl"
   vars {
+    sonar_command = "${var.sonar_command}"
     db_username = "${var.db_username}"
     db_password = "${var.db_password}"
     db_url = "${var.db_url}"
     image = "${var.image}"
-  }
-}
-
-resource "template_file" "user_data" {
-  filename = "${path.module}/user_data.tpl"
-  vars {
-    sonar_command = "${template_file.sonar_command.rendered}"
     additional_user_data = "${var.additional_user_data}"
   }
 }

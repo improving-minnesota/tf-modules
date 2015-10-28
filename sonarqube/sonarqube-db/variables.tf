@@ -25,3 +25,6 @@ variable "ebs_size" {
 variable "image" {
   default = "library/sonarqube:5.1"
 }
+variable "sonar_command" {
+  default = "/etc/sonarqube/run"
+}
