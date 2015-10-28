@@ -1,18 +1,12 @@
-resource "template_file" "drone_command" {
-  filename = "${path.module}/drone.cmd"
+resource "template_file" "user_data" {
+  filename = "${path.module}/user_data.tpl"
   vars {
+    drone_command = "${var.drone_command}"
     github_client = "${var.github_client}"
     github_secret = "${var.github_secret}"
     github_orgs = "${var.github_org}"
     workers = "${var.workers}"
     image = "${var.image}"
-  }
-}
-
-resource "template_file" "user_data" {
-  filename = "${path.module}/user_data.tpl"
-  vars {
-    drone_command = "${template_file.drone_command.rendered}"
     additional_user_data = "${var.additional_user_data}"
   }
 }

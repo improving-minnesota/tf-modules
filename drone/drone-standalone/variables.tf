@@ -23,3 +23,6 @@ variable "ebs_size" {
 variable "image" {
   default = "drone/drone:latest"
 }
+variable "drone_command" {
+  default = "/etc/drone/run"
+}
