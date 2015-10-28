@@ -5,6 +5,7 @@ resource "template_file" "drone_command" {
     github_secret = "${var.github_secret}"
     github_orgs = "${var.github_org}"
     workers = "${var.workers}"
+    image = "${var.image}"
   }
 }
 

@@ -20,3 +20,6 @@ variable "availability_zone" {}
 variable "ebs_size" {
   default = 10
 }
+variable "image" {
+  default = "drone/drone:latest"
+}
