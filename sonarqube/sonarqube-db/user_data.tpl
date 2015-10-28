@@ -22,9 +22,9 @@ write_files:
       docker run \
         -d \
         -p 9000:9000 \
-        -e SONARQUBE_JDBC_USERNAME="${DB_USERNAME}" \
-        -e SONARQUBE_JDBC_PASSWORD="${DB_PASSWORD}" \
-        -e SONARQUBE_JDBC_URL="${DB_URL}" \
+        -e SONARQUBE_JDBC_USERNAME="$${DB_USERNAME}" \
+        -e SONARQUBE_JDBC_PASSWORD="$${DB_PASSWORD}" \
+        -e SONARQUBE_JDBC_URL="$${DB_URL}" \
         -v /opt/sonarqube:/opt/sonarqube \
-        "${IMAGE}"
+        "$${IMAGE}"
 ${additional_user_data}

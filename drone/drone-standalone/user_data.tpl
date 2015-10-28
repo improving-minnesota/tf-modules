@@ -23,13 +23,13 @@ write_files:
       docker run \
         -d \
         -p 80:80 \
-        -e DRONE_GITHUB_CLIENT="${GITHUB_CLIENT}" \
-        -e DRONE_GITHUB_SECRET="${GITHUB_SECRET}" \
+        -e DRONE_GITHUB_CLIENT="$${GITHUB_CLIENT}" \
+        -e DRONE_GITHUB_SECRET="$${GITHUB_SECRET}" \
         -e DRONE_GITHUB_OPEN=true \
-        -e DRONE_GITHUB_ORGS="${GITHUB_ORGS}" \
-        -e DRONE_WORKER_NODES="${WORKERS}" \
+        -e DRONE_GITHUB_ORGS="$${GITHUB_ORGS}" \
+        -e DRONE_WORKER_NODES="$${WORKERS}" \
         -e DOCKER_HOST=unix:///var/run/docker.sock \
         -v /var/run/docker.sock:/var/run/docker.sock \
         -v /var/lib/drone:/var/lib/drone \
-        "${IMAGE}"
+        "$${IMAGE}"
 ${additional_user_data}
