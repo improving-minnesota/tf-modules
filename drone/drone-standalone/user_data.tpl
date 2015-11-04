@@ -24,7 +24,7 @@ write_files:
         -d \
         -p 80:8000 \
         -e REMOTE_DRIVER=github \
-        -e REMOTE_CONFIG=https://github.com?client_id=$${GITHUB_CLIENT}&client_secret=$${GITHUB_SECRET}?open=true&orgs=$${GITHUB_ORG} \
+        -e REMOTE_CONFIG="https://github.com?client_id=$${GITHUB_CLIENT}&client_secret=$${GITHUB_SECRET}?open=true&orgs=$${GITHUB_ORG}" \
         -e DRONE_WORKER_NODES="$${WORKERS}" \
         -e DOCKER_HOST=unix:///var/run/docker.sock \
         -v /var/run/docker.sock:/var/run/docker.sock \
