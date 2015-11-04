@@ -17,9 +17,12 @@ variable "workers" {
   default = "unix:///var/run/docker.sock,unix:///var/run/docker.sock"
 }
 variable "availability_zone" {}
-variable "ebs_size" {
-  default = 10
+
+variable "db_driver" {
+  default = "mysql"
 }
+variable "db_config" {}
+
 variable "image" {
   default = "drone/drone:0.4"
 }

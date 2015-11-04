@@ -5,6 +5,8 @@ resource "template_file" "user_data" {
     github_client = "${var.github_client}"
     github_secret = "${var.github_secret}"
     github_org = "${var.github_org}"
+    db_driver = "${var.db_driver}"
+    db_config = "${var.db_config}"
     workers = "${var.workers}"
     image = "${var.image}"
     additional_user_data = "${var.additional_user_data}"
@@ -35,14 +37,6 @@ resource "aws_security_group" "drone" {
   }
 }
 
-resource "aws_ebs_volume" "db" {
-  availability_zone = "${var.availability_zone}"
-  size = "${var.ebs_size}"
-  tags {
-    Name = "drone"
-  }
-}
-
 resource "aws_instance" "drone" {
   ami = "${var.ami_id}"
   instance_type = "${var.instance_type}"
@@ -56,10 +50,4 @@ resource "aws_instance" "drone" {
   tags {
     Name = "drone"
   }
-}
-
-resource "aws_volume_attachment" "drone_db" {
-  device_name = "/dev/sdh"
-  volume_id = "${aws_ebs_volume.db.id}"
-  instance_id = "${aws_instance.drone.id}"
 }
