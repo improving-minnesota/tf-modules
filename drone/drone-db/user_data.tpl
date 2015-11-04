@@ -26,7 +26,7 @@ write_files:
         -d \
         -p 80:8000 \
         -e REMOTE_DRIVER=github \
-        -e REMOTE_CONFIG="https://github.com?client_id=$${GITHUB_CLIENT}&client_secret=$${GITHUB_SECRET}?open=true&orgs=$${GITHUB_ORGS}" \
+        -e REMOTE_CONFIG="https://github.com?client_id=$${GITHUB_CLIENT}&client_secret=$${GITHUB_SECRET}?open=true&orgs=$${GITHUB_ORG}" \
         -e DATABASE_DRIVER=$${DATABASE_DRIVER} \
         -e DATABASE_CONFIG="$${DATABASE_CONFIG}" \
         -e DRONE_WORKER_NODES="$${WORKERS}" \
