@@ -113,7 +113,7 @@ rancher:
       ports:
         - 8080:8080
       environment:
-        - CATTLE_DB_CATTLE_MYSQL_HOST=${var.database_hostname}
+        - CATTLE_DB_CATTLE_MYSQL_HOST=${var.database_host}
         - CATTLE_DB_CATTLE_MYSQL_PORT=${var.database_port}
         - CATTLE_DB_CATTLE_MYSQL_NAME=${var.database_schema}
         - CATTLE_DB_CATTLE_USERNAME=${var.database_username}
