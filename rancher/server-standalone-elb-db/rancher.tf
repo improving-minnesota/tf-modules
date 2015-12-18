@@ -85,7 +85,7 @@ resource "aws_elb" "loadbalancer" {
   }
   health_check {
     healthy_threshold = 2
-    unhealthy_threshold = 1
+    unhealthy_threshold = 2
 
     target = "HTTP:8080/ping"
     interval = 30
