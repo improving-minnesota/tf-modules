@@ -93,6 +93,13 @@ resource "aws_elb" "loadbalancer" {
   }
 }
 
+resource "aws_proxy_protocol_policy" "websockets" {
+  load_balancer = "${aws_elb.loadbalancer.name}"
+  instance_ports = [
+    8080
+  ]
+}
+
 resource "aws_instance" "server" {
   ami = "${var.server_ami}"
   instance_type = "${var.server_instance_type}"
