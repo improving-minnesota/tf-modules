@@ -1,5 +1,5 @@
 resource "aws_launch_configuration" "rancher" {
-  image_id = "${var.host_image_id}"
+  image_id = "${var.host_ami}"
   instance_type = "${var.host_instance_type}"
   key_name = "${var.host_key_name}"
   iam_instance_profile = "${var.host_profile}"

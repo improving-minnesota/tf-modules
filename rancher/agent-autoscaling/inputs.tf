@@ -47,17 +47,17 @@ variable "rancher_server_url" {
   description = "The URL for the Rancher server to join including the environment token"
 }
 
-varaible "host_capacity_min" {
+variable "host_capacity_min" {
   description = "The miminum capacity for the ASG"
   default = 1
 }
 
-varaible "host_capacity_max" {
+variable "host_capacity_max" {
   description = "The maximum capacity for the ASG"
   default = 4
 }
 
-varaible "host_capacity_desired" {
+variable "host_capacity_desired" {
   description = "The desired capacity for the ASG"
   default = 1
 }
