@@ -4,7 +4,7 @@ resource "aws_launch_configuration" "rancher" {
   key_name = "${var.host_key_name}"
   iam_instance_profile = "${var.host_profile}"
   security_groups = [
-    "${concat([aws_security_group.rancher.id], split(",", var.host_security_group_ids))}"
+    "${concat(aws_security_group.rancher.id, split(",", var.host_security_group_ids))}"
   ]
   associate_public_ip_address = true
   ebs_optimized = true

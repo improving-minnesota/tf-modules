@@ -4,6 +4,7 @@ variable "host_ami" {
 
 variable "host_profile" {
   description = "The IAM profile to assign to the instances"
+  default = ""
 }
 
 variable "host_key_name" {
