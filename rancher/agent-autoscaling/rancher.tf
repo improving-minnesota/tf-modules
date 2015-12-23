@@ -94,7 +94,7 @@ resource "aws_security_group_rule" "rancher_upd_4500_ingress" {
 }
 
 resource "aws_security_group_rule" "rancher_upd_4500_egress" {
-  type = "ingress"
+  type = "egress"
   from_port = 4500
   to_port = 4500
   protocol = "udp"
