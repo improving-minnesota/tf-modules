@@ -49,7 +49,7 @@ resource "aws_autoscaling_group" "rancher" {
   health_check_type = "EC2"
   health_check_grace_period = 300
   load_balancers = [
-    "${split(",", var.loadbalancer_ids)}"
+    "${compact(split(",", var.loadbalancer_ids))}"
   ]
   vpc_zone_identifier = [
     "${split(",", var.host_subnet_ids)}"
