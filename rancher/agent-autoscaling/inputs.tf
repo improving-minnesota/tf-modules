@@ -40,7 +40,7 @@ variable "host_instance_type" {
 
 variable "rancher_image" {
   description = "The Docker image to run Rancher from"
-  default = "rancher/agent:latest"
+  default = "rancher/agent:v0.8.2"
 }
 
 variable "rancher_server_url" {
