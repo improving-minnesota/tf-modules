@@ -75,15 +75,6 @@ resource "aws_security_group_rule" "rancher_upd_500_ingress" {
   self = true
 }
 
-resource "aws_security_group_rule" "rancher_upd_500_egress" {
-  type = "egress"
-  from_port = 500
-  to_port = 500
-  protocol = "udp"
-  security_group_id = "${aws_security_group.rancher.id}"
-  self = true
-}
-
 resource "aws_security_group_rule" "rancher_upd_4500_ingress" {
   type = "ingress"
   from_port = 4500
@@ -91,26 +82,6 @@ resource "aws_security_group_rule" "rancher_upd_4500_ingress" {
   protocol = "udp"
   security_group_id = "${aws_security_group.rancher.id}"
   self = true
-}
-
-resource "aws_security_group_rule" "rancher_upd_4500_egress" {
-  type = "egress"
-  from_port = 4500
-  to_port = 4500
-  protocol = "udp"
-  security_group_id = "${aws_security_group.rancher.id}"
-  self = true
-}
-
-resource "aws_security_group_rule" "rancher_egress" {
-  type = "egress"
-  from_port = 8080
-  to_port = 8080
-  protocol = "tcp"
-  security_group_id = "${aws_security_group.rancher.id}"
-  cidr_blocks = [
-    "0.0.0.0/0"
-  ]
 }
 
 resource "aws_security_group_rule" "rancher_ssh" {
@@ -124,22 +95,11 @@ resource "aws_security_group_rule" "rancher_ssh" {
   ]
 }
 
-resource "aws_security_group_rule" "rancher_http" {
+resource "aws_security_group_rule" "rancher_egress" {
   type = "egress"
-  from_port = 80
-  to_port = 80
-  protocol = "tcp"
-  security_group_id = "${aws_security_group.rancher.id}"
-  cidr_blocks = [
-    "0.0.0.0/0"
-  ]
-}
-
-resource "aws_security_group_rule" "rancher_https" {
-  type = "egress"
-  from_port = 443
-  to_port = 443
-  protocol = "tcp"
+  from_port = 0
+  to_port = 0
+  protocol = "-1"
   security_group_id = "${aws_security_group.rancher.id}"
   cidr_blocks = [
     "0.0.0.0/0"
