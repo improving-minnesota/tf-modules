@@ -8,8 +8,7 @@ resource "aws_launch_configuration" "rancher" {
   ]
   associate_public_ip_address = true
   ebs_optimized = true
-  ebs_block_device {
-    device_name = "sdf"
+  root_block_device {
     volume_type = "gp2"
     volume_size = "${var.host_root_volume_size}"
     delete_on_termination = true
@@ -24,17 +23,6 @@ rancher:
       volumes:
         - /var/run/docker.sock:/var/run/docker.sock
       privileged: true
-disk_setup:
-  /dev/xvdf:
-    table_type: 'mbr'
-    layout: true
-    overwrite: false
-fs_setup:
-  - device: '/dev/xvdf'
-    filesystem: 'ext4'
-    partition: 'auto'
-mounts:
-  - [ xvdf, /mnt, auto, "defaults" ]
 EOF
   lifecycle {
     create_before_destroy = true
