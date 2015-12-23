@@ -110,6 +110,9 @@ resource "aws_instance" "server" {
   ]
   subnet_id = "${var.server_subnet_id}"
   associate_public_ip_address = true
+  tags {
+    Name = "rancher-server"
+  }
   user_data = <<USERDATA
 #cloud-config
 rancher:
