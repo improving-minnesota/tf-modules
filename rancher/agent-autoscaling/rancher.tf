@@ -20,6 +20,8 @@ rancher:
     rancher:
       image: ${var.rancher_image}
       command: ${var.rancher_server_url}
+      environment:
+        - CATTLE_AGENT_IP=$private_ipv4
       volumes:
         - /var/run/docker.sock:/var/run/docker.sock
       privileged: true
